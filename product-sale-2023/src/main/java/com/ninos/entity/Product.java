@@ -1,5 +1,7 @@
 package com.ninos.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,5 +29,11 @@ public class Product {
     @Column(name = "barcode")
     private String barcode;
 
+
+
+    @JsonBackReference
+    @OneToOne(mappedBy = "product")
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Sale sale;
 
 }

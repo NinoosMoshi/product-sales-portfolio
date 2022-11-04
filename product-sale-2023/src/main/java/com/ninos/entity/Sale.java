@@ -1,5 +1,6 @@
 package com.ninos.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,12 @@ public class Sale {
 
     @Column(name = "order_id")
     private Long orderId;
+
+
+    @JsonManagedReference
+    @OneToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Product product;
 
 
 

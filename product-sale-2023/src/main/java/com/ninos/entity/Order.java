@@ -1,5 +1,6 @@
 package com.ninos.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,8 @@ public class Order {
 
     @Column(name = "total")
     private Double total;
+
+
 
 
 }
